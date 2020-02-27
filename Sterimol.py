@@ -144,16 +144,18 @@ for files in range(len(afiles)):
             B_value.append(abs(np.min([round(Z[i] - radii[i], 3) for i in range(len(radii))])))
             B_value.append(np.max([round(abs(radii[i] - Z[i]), 3) for i in range(len(radii))]))
     else:
-        for full in range(360):
+        for full in range(90):
             angle = full
             for i in range(len(X)):
                 array = axis_Rotation('X', X[0], Y[0], Z[0], angle)
                 rewrite(X, Y, Z, array)
             B_value.append(np.max([round(abs(Y[i] - radii[i]), 3) for i in range(len(radii))]))
+            B_value.append(abs(np.min([round(Y[i] - radii[i], 3) for i in range(len(radii))])))
             B_value.append(np.max([round(abs(radii[i] - Y[i]), 3) for i in range(len(radii))]))
             B_value.append(np.max([round(abs(radii[i]) + abs(Y[i]), 3) for i in range(len(radii))]))
             B_value.append(np.max([round(abs(radii[i]) + abs(Z[i]), 3) for i in range(len(radii))]))
             B_value.append(np.max([round(abs(Z[i] - radii[i]), 3) for i in range(len(radii))]))
+            B_value.append(abs(np.min([round(Z[i] - radii[i], 3) for i in range(len(radii))])))
             B_value.append(np.max([round(abs(radii[i] - Z[i]), 3) for i in range(len(radii))]))
 
     L_abs = round(np.max([abs(radii[i])+abs(length[i]) for i in range(len(radii))]), 3)
